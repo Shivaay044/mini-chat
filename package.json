@@ -1,0 +1,27 @@
+{
+  "name": "mini-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shivaay044/mini-chat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shivaay044/mini-chat/issues"
+  },
+  "homepage": "https://github.com/Shivaay044/mini-chat#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mdb-ui-kit": "^6.3.1",
+    "nodemon": "^2.0.22",
+    "socket.io": "^4.6.1"
+  }
+}
