@@ -1,84 +1,28 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Mini chat</title>
-    <style>
-      body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-      #header{
-        display: flex;
-        justify-content: space-around;
-      }
-
-      h3{
-        margin-top: 30px;
-        color: #0dcf34;
-      }
-
-      h4{
-        margin-top: 30px;
-        color: #0d85cf;
-      }
-
-      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
-      #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
-      #input:focus { outline: none; }
-      #form > button { background: #A66CFF; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
-
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages > li { padding: 0.5rem 1rem; }
-      #messages > li:nth-child(odd) { background: #efefef; }
-
-    </style>
-    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <div id="header">
-        <img height="100px" width="100px" src="https://i.ibb.co/MPhK2ZR/chat-logo-design-1.png"/>
-        <h3></h3>
-        <h4></h4>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./home.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <form>
+            <span class="text-center">login</span>
+        <div class="input-container">
+            <input class="name" type="text" required/>
+            <label>Full Name</label>		
+        </div>
+        <div class="input-container">		
+            <input class="mail" type="mail" required/>
+            <label>Email</label>
+        </div>
+            <button type="button" class="btn">submit</button>
+    </form>	
     </div>
-    <ul id="messages"></ul>
-    <div></div>
-
-    <form id="form" action="">
-      <input placeholder="type here..." id="input" autocomplete="off" /><button>Send</button>
-    </form>
-  </body>
+</body>
 </html>
 
-<script>
-    let socket = io("https://min-chat.onrender.com",{transports : ["websocket"]});
-
-    let form = document.getElementById('form');
-    let input = document.getElementById('input');
-    let messages = document.getElementById('messages');
-    let h3 = document.querySelector("h3")
-    let h4 = document.querySelector("h4")
-
-    form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    if (input.value) {
-      socket.emit('chat message', input.value);
-      input.value = '';
-    }
-  });
-
-
-  socket.on('chat message', function(msg) {
-    let item = document.createElement('li');
-    item.textContent = msg;
-    messages.appendChild(item);
-    window.scrollTo(0, document.body.scrollHeight);
-  });
-  
-
-  socket.on("online",(online)=>{
-    setInterval(() => {
-        h3.textContent = online
-    }, 1000);
-  })
-
-  let obj=  JSON.parse(localStorage.getItem("info"))
-   h4.textContent = `Hey ${obj?.name}!`
-console.log(obj?.name)
-</script>
+<script src="./home.js"></script>

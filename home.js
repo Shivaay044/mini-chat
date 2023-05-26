@@ -14,6 +14,6 @@ btn.addEventListener("click",()=>{
 
     localStorage.setItem("info",JSON.stringify(obj))
     if(obj.name!="" &&obj.name!=undefined){
-        window.location.href = "./index.html"
+        window.location.href = "./chat.html"
     }
 })
