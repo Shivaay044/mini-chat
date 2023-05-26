@@ -81,3 +81,17 @@ body{
 	font-size:12px;
 	
 }
+
+
+p{
+	color: wheat;
+	font-size:10px;
+	font-weight: 100;
+	width: 120%;
+      text-align: center;
+}
+
+.footer>p{
+	position: relative;
+	bottom: -60px;
+}
